@@ -275,10 +275,10 @@ class qtype_calculatedmulti_edit_form extends question_edit_form {
         foreach ($answers as $key => $answer) {
             $trimmedanswer = trim($answer);
             $fraction = (float) $data['fraction'][$key];
-            if (empty($trimmedanswer) && $trimmedanswer != '0' && empty($fraction)) {
+            if (empty($trimmedanswer) && $trimmedanswer !== '0' && empty($fraction)) {
                 continue;
             }
-            if (empty($trimmedanswer)) {
+            if (empty($trimmedanswer) && $trimmedanswer !== '0') {
                 $errors['answeroptions['.$key.']'] = get_string('errgradesetanswerblank', 'qtype_multichoice');
             }
             if ($trimmedanswer != '' || $answercount == 0) {
